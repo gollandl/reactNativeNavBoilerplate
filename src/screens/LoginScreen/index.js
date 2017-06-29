@@ -7,6 +7,8 @@ import {
   Button,
   TextInput,
   StyleSheet,
+  TouchableHighlight,
+  Image,
 } from 'react-native';
 import { inject, observer } from 'mobx-react/native';
 
@@ -82,6 +84,9 @@ class LoginScreen extends Component {
 
         <View style={styles.form}>
 
+
+          
+
           <TextInput
             style={ styles.text_input }
             onChangeText={ (username) => this.setState({ username }) }
@@ -97,10 +102,11 @@ class LoginScreen extends Component {
             secureTextEntry={true}
           />
 
-          <Button
-            title={`Log in`}
-            onPress={ () => Account.login(username, password).then( () => this.dismiss(), (error) => alert(error.message) ) }
-          />
+
+          <TouchableHighlight   onPress={ () => Account.login(username, password).then( () => this.dismiss(), (error) => alert(error.message) ) } style={styles.touch}>
+                      <Text style={styles.buttonText}>Login</Text>
+                    </TouchableHighlight>
+
 
         </View>
 
@@ -129,7 +135,22 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: Constants.Colors.blackColor,
     borderRadius: 20,
-  }
+  },
+  touch:{
+    height:30,
+    width:200,
+    backgroundColor:'green',
+    justifyContent:'center',
+    marginTop:20,
+  },
+  buttonText:{
+      flex:1,
+      color:'white',
+      fontSize:15,
+      fontWeight:"600",
+      alignSelf:'center',
+    },
+
 })
 
 export default LoginScreen;

@@ -9,35 +9,40 @@ import {
   Button,
 } from 'react-native';
 import { inject, observer } from 'mobx-react/native';
-import CounterView from '../components/Counter';
 
-@inject('Counter') @observer
+
 export default class PushedScreen extends Component {
   render() {
-    const { Counter } = this.props;
 
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Pushed Screen Counter
-        </Text>
+    
+      <View>
 
-        <CounterView
-          count={Counter.count}
-          onPlus={() => Counter.onPlus()}
-          onMinus={() => Counter.onMinus()}
-        />
+            <Text style={styles.text}> {`Logged in as ${Account.current.username}`}</Text>
 
-        <Button
-          title={`Push new screen`}
-          onPress={() => {
-            this.props.navigator.push({
-              screen: 'app.PushedScreen',
-              title: 'Pushed Screen'
-            });
-          }}
-        />
-      </View>
+
+
+              <Text style={styles.thank}>Thank you for your payment</Text>
+
+          <TouchableHighlight onPress={() => navigate('Home')} style={styles.touch}>
+                    <Text style={styles.buttonText}>Log out</Text>
+                  </TouchableHighlight>
+
+            <Button style={styles.topup2}
+                    onPress={() => Account.logout().then(() => Constants.Global.openLoginModalIn(this.props.navigator)) }
+                    title="Log Out"/>
+
+
+          </View>
+
+
+
+
+
+
+
+
+
     );
   }
 }
