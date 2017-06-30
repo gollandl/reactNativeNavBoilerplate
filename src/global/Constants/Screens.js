@@ -9,7 +9,7 @@ export default {
   },
   PUSHED_SCREEN: {
     screen : 'app.PushedScreen',
-    title  : 'Pushed Screen',
+    title  : 'Top up',
   },
   DRAWER: {
     screen : 'app.DrawerScreen',
@@ -17,15 +17,15 @@ export default {
 
   FIRST_TAB: {
     screen       : 'app.FirstTabScreen',
-    title        : 'First Tab',
-    label        : 'First Tab',
+    title        : 'Gas',
+    label        : 'Gas',
     icon         : Images.TAB_1,
     selectedIcon : Images.TAB_1_selected,
   },
   SECOND_TAB: {
     screen       : 'app.SecondTabScreen',
-    title        : 'Second Tab',
-    label        : 'Second Tab',
+    title        : 'Elec',
+    label        : 'Elec',
     icon         : Images.TAB_1,
     selectedIcon : Images.TAB_1_selected,
   },
